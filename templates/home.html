@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {% for pre_worker in pre_worker %}
+        <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}" data-bs-interval="5000">
+            <center>
+                <div class="card">
+                    <div class="card-body">  
+                        <h1>Sifatli Ishchilar</h1>
+                        <img src="{{pre_worker.image.url}}" alt="" width="250px">
+                        <h5>{{ pre_worker.name }}</h5>
+                        <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                </div>
+            </center>
+        </div>
+      {% endfor %} 
+      </div>
+    </div>
+  </div>
+{% comment %} <!-- Product Cart Start -->
+<div class="container">
+    <div class=" w-100 mt-4">
+        <div class="d-flex flex-wrap justify-content-between">
+            <h4 class="d-block" >Sifatli Ishchilar</h4>
+            
+        </div>
+
+        <div class"d-flex flex-wrap justify-content-between">
+            {% for pre_worker in pre_worker %}
+            <!-- Product Cart Start -->
+            <div class="card border border-0 shadow-sm d-inline-block m-1 mt-3" style="width: 16.5rem;" >
+                <img height="200" class=" card-img-top" src="{{ pre_worker.image.url }}" alt="">
+                <div class="card-body">
+                    <h6 class="align-center card-title">{{ pre_worker.name }}</h6>
+                    <div class="buttons d-flex flex-wrap justify-content-between ">
+                        <a href="#" class="btn btn-outline-primary" >Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Cart End -->
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+<!-- Product Cart End --> {% endcomment %}
+<!-- Product Cart Start -->
+ <div class="container">
+    <div class=" w-100 mt-4">
+        <div class="d-flex flex-wrap justify-content-between">
+            <h4 class="d-block" >Barcha Ishchilar</h4>
+            
+        </div>
+
+        <div class"d-flex flex-wrap justify-content-between">
+            {% for worker in worker %}
+            <!-- Product Cart Start -->
+            <div class="card border border-0 shadow-sm d-inline-block m-1 mt-3" style="width: 16.5rem;" >
+                <img height="200" class=" card-img-top" src="{{ worker.image.url }}" alt="">
+                <div class="card-body">
+                    <h5 class="align-center card-title">Ismi:{{ worker.name }}</h6>
+                    <h6 class="align-center card-title">Yoshi:{{ worker.age }}</h3>
+                    <div class="buttons d-flex flex-wrap justify-content-between ">
+                        <a href="{{ worker.instagram }}" class="btn btn-outline-primary" ><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" class="btn btn-outline-primary" ><i class="fa fa-telegram" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Cart End -->
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+<!-- Product Cart End -->
+</div>
+{% endblock content %}
